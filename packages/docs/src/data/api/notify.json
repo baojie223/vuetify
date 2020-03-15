@@ -1,9 +1,9 @@
 {
-  "color": "green",
+  "color": "base",
   "close": true,
-  "id": "new-store",
-  "text": "Check it Out",
-  "msg": "💖 New Vuetify Store in Beta 🛒",
-  "href": "https://store-beta.vuetifyjs.com/",
+  "id": "vueconf-amsterdam",
+  "text": "Go to Slides",
+  "msg": "🎤 Check out John's presentation from **Vue Conf Amsterdam**",
+  "href": "https://docs.google.com/presentation/d/13dt0RmiQyulnLcfkj7OokLDG3Oe-R1SXkwwNZ6SmZYU/edit",
   "timeout": 0
 }

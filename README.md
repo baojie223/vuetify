@@ -122,12 +122,17 @@
       </td>
       <td>
         <a href="https://www.digitalmaas.com/?ref=vuetify-github">
-          <img height="30px" src="https://cdn.vuetifyjs.com/images/backers/digital-maas.svg">
+          <img height="50px" src="https://cdn.vuetifyjs.com/images/backers/digital-maas.svg">
         </a>
       </td>
       <td>
         <a href="https://www.brightree.com/?ref=vuetify-github">
-          <img height="30px" src="https://cdn.vuetifyjs.com/images/backers/brightree-logo-light.png">
+          <img height="70px" src="https://cdn.vuetifyjs.com/images/backers/brightree-logo-light.png">
+        </a>
+      </td>
+      <td>
+        <a href="https://www.alv-software.com/?ref=vuetify-github">
+          <img height="30px" src="https://cdn.vuetifyjs.com/images/backers/alv-software-logo-light.png">
         </a>
       </td>
       </td>
@@ -382,7 +387,7 @@ Vuetify supports all **modern browsers**, including IE11 and Safari 9+ (using [p
         n/a
       </td>
       <td>
-       A Vue CLI 3 preset for Vuetify
+       A Vue CLI preset for Vuetify
       </td>
     </tr>
     <tr>
