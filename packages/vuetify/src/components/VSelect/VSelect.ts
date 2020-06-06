@@ -605,6 +605,8 @@ export default baseMixins.extend<options>().extend({
         this.isFocused = true
         this.$emit('focus')
       }
+
+      this.$emit('click', e)
     },
     onEscDown (e: Event) {
       e.preventDefault()
@@ -635,11 +637,15 @@ export default baseMixins.extend<options>().extend({
       })
       const item = this.allItems[index]
       if (index !== -1) {
+        this.lastItem = Math.max(this.lastItem, index + 5)
         this.setValue(this.returnObject ? item : this.getValue(item))
+        this.$nextTick(() => this.$refs.menu.getTiles())
         setTimeout(() => this.setMenuIndex(index))
       }
     },
     onKeyDown (e: KeyboardEvent) {
+      if (this.readonly && e.keyCode !== keyCodes.tab) return
+
       const keyCode = e.keyCode
       const menu = this.$refs.menu
 

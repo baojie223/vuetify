@@ -790,5 +790,129 @@ describe('VDataTable.ts', () => {
       pageStart: 0,
       pageStop: 1,
     })
+
+    expect(pagination).toHaveBeenCalledTimes(2)
+  })
+
+  // https://github.com/vuetifyjs/vuetify/issues/10715
+  // NOTE: This test currently succeeds regardless of fix
+  // It seems like the test environment does not double
+  // fire the events in the same way the browser does
+  it('should not emit too many pagination events', async () => {
+    const headers = [
+      {
+        text: 'Name',
+        value: 'name',
+      },
+      {
+        text: 'ID',
+        value: 'id',
+      },
+    ]
+
+    const items = [
+      {
+        name: 'Assistance',
+        id: 1,
+      },
+      {
+        name: 'Candidat',
+        id: 2,
+      },
+    ]
+
+    const wrapper = mountFunction({
+      propsData: {
+        headers,
+        itemKey: 'id',
+        serverItemsLength: 0,
+      },
+    })
+
+    wrapper.setProps({ items, serverItemsLength: items.length })
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.emitted().pagination).toHaveLength(2)
+  })
+
+  // https://github.com/vuetifyjs/vuetify/issues/4975
+  it('should show correct aria-labels when sorting', async () => {
+    const wrapper = mountFunction({
+      propsData: {
+        headers: testHeaders,
+        itemKey: 'name',
+        items: testItems.slice(0, 5),
+        sortBy: 'calories',
+      },
+    })
+
+    wrapper.setProps({ sortDesc: true })
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.html()).toMatchSnapshot()
+
+    wrapper.setProps({ mustSort: true })
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  // https://github.com/vuetifyjs/vuetify/issues/11179
+  it('should return rows from columns that exclusively match custom filters', async () => {
+    const wrapper = mountFunction({
+      propsData: {
+        items: testItems,
+        headers: [
+          {
+            text: 'Dessert (100g serving)',
+            align: 'left',
+            filter: (value, search) => {
+              if (!search) return true
+              return value === search
+            },
+            value: 'name',
+          },
+          { text: 'Calories', value: 'calories' },
+          { text: 'Fat (g)', value: 'fat' },
+          { text: 'Carbs (g)', value: 'carbs' },
+          { text: 'Protein (g)', value: 'protein' },
+          { text: 'Iron (%)', value: 'iron' },
+        ],
+      },
+    })
+
+    wrapper.setProps({ search: 'eclair' })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.vm.internalCurrentItems).toHaveLength(0)
+
+    wrapper.setProps({ search: 'Eclair' })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.vm.internalCurrentItems).toHaveLength(1)
+  })
+
+  // https://github.com/vuetifyjs/vuetify/issues/10244
+  it('should respect mustSort property on options', async () => {
+    const wrapper = mountFunction({
+      propsData: {
+        items: testItems,
+        headers: [
+          { text: 'Dessert (100g serving)', value: 'name' },
+        ],
+        options: {
+          mustSort: true,
+        },
+      },
+    })
+
+    wrapper.find('th').trigger('click')
+    await wrapper.vm.$nextTick()
+
+    wrapper.find('th').trigger('click')
+    await wrapper.vm.$nextTick()
+
+    wrapper.find('th').trigger('click')
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })

@@ -28,11 +28,11 @@
   "cdnText": "crwdns41422:0[jsdelivr]crwdne41422:0",
   "cdnAlert": "crwdns56531:0[Application]crwdne56531:0",
   "electronHeader": "crwdns56533:0crwdne56533:0",
-  "electronText": "crwdns56535:0[electron-builder]crwdne56535:0",
+  "electronText": "crwdns56936:0[electron-builder]crwdne56936:0",
   "pwaHeader": "crwdns56537:0crwdne56537:0",
   "pwaText": "crwdns56539:0crwdne56539:0",
   "cordovaHeader": "crwdns56541:0crwdne56541:0",
-  "cordovaText": "crwdns56543:0[Corodova]crwdne56543:0",
+  "cordovaText": "crwdns56768:0[Cordova]crwdne56768:0",
   "capacitorHeader": "crwdns56545:0crwdne56545:0",
   "capacitorText": "crwdns56547:0[Capacitor]crwdne56547:0"
 }

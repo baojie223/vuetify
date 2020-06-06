@@ -7,7 +7,11 @@ import VTextField from '../VTextField/VTextField'
 
 // Utilities
 import mergeData from '../../util/mergeData'
-import { keyCodes, getObjectValueByPath } from '../../util/helpers'
+import {
+  getObjectValueByPath,
+  getPropertyFromItem,
+  keyCodes,
+} from '../../util/helpers'
 
 // Types
 import { PropType } from 'vue'
@@ -83,7 +87,12 @@ export default VSelect.extend({
     filteredItems (): object[] {
       if (!this.isSearching || this.noFilter || this.internalSearch == null) return this.allItems
 
-      return this.allItems.filter(item => this.filter(item, String(this.internalSearch), String(this.getText(item))))
+      return this.allItems.filter(item => {
+        const value = getPropertyFromItem(item, this.itemText, undefined)
+        const text = value != null ? String(value) : ''
+
+        return this.filter(item, String(this.internalSearch), text)
+      })
     },
     internalSearch: {
       get (): string | undefined {

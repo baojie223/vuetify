@@ -31,7 +31,7 @@
         },
         {
           title: 'operations',
-          name: 'Heather Hill',
+          name: 'Heather Leider',
           email: 'heather@vuetifyjs.com',
           avatar: 'avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Blank&hairColor=Brown&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=Pink&eyeType=Hearts&eyebrowType=Default&mouthType=Tongue&skinColor=Light',
         },
@@ -89,6 +89,14 @@
           github: 'johannaRlee',
           twitter: 'johannaRlee',
           avatar: 'avatarStyle=Transparent&topType=LongHairBob&accessoriesType=Blank&hairColor=Brown&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Black&eyeType=Squint&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light',
+        },
+        {
+          title: 'core',
+          name: 'Vanessa Alvarez',
+          email: 'vanessalvarez8a@gmail.com',
+          linkedin: 'vanessaalvarez',
+          twitter: 'vanessalvarez8a',
+          avatar: 'avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Blank&hairColor=Brown&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=Red&eyeType=Side&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Pale',
         },
       ],
     }),
